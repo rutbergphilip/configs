@@ -41,8 +41,10 @@ return {
   },
 
   -- Copilot: inline ghost-text suggestions. Tab accepts, <M-]> / <M-[> cycle. Run :Copilot auth once.
+  -- On machines without Copilot, `export NVIM_NO_COPILOT=1` skips Copilot and Copilot Chat entirely.
   {
     "zbirenbaum/copilot.lua",
+    enabled = not vim.env.NVIM_NO_COPILOT,
     opts = {
       suggestion = { auto_trigger = true, debounce = 75 },
       filetypes = { yaml = true, markdown = true, gitcommit = true, ["*"] = true },
@@ -66,7 +68,11 @@ return {
   },
 
   -- Copilot Chat: <leader>aa toggle, <leader>ax clear, <leader>aq quick question (set by the extra)
-  { "CopilotC-Nvim/CopilotChat.nvim", opts = { model = "gpt-4.1", window = { layout = "vertical", width = 0.4 } } },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = not vim.env.NVIM_NO_COPILOT,
+    opts = { model = "gpt-4.1", window = { layout = "vertical", width = 0.4 } },
+  },
 
   -- Extra treesitter parsers / tools handled by the lang extras; add a few nice-to-haves
   {

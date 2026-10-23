@@ -49,6 +49,7 @@ return {
         "undotree",
         "DiffviewFiles",
         "help",
+        "tutor", -- the tutorial tells you to press hjkl repeatedly
         "TelescopePrompt",
         "neo-tree",
         "trouble",

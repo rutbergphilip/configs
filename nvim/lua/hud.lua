@@ -19,7 +19,8 @@ M.pages = {
     { "]d  [d", "next diag", "Spc xx", "all diags" },
     { "Spc gg", "lazygit", "Spc gv", "diffview" },
     { "Spc H/h", "harpoon", "S-h S-l", "buffers" },
-    { "Tab", "copilot ok", "Spc aa", "chat" },
+    vim.env.NVIM_NO_COPILOT and { "Spc ac", "claude", "Spc ay/an", "diff y/n" }
+      or { "Tab", "copilot ok", "Spc aa", "chat" },
     { "Spc uk", "cheatsheet", "Spc uJ", "next page" },
   },
   {
@@ -189,6 +190,7 @@ function M.setup()
     set = M.set,
   }):map("<leader>uK")
   vim.keymap.set("n", "<leader>uJ", M.next_page, { desc = "Key HUD next page" })
+  vim.keymap.set("n", "<leader>uj", M.next_page, { desc = "Key HUD next page" })
   M.refresh()
 end
 
