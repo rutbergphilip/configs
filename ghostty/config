@@ -1,0 +1,12 @@
+# Ghostty — tuned for Neovim
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+font-thicken = true
+theme = catppuccin-mocha
+cursor-style = block
+cursor-style-blink = false
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+window-padding-x = 8
+window-padding-y = 6
+shell-integration-features = no-cursor

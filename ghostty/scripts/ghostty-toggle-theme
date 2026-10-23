@@ -1,0 +1,10 @@
+#!/bin/zsh
+# Toggles Ghostty light/dark by flipping window-theme. Ghostty then switches the
+# light:/dark: theme and notifies apps (DEC 2031), so Copilot CLI follows along.
+F="$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+if grep -q '^window-theme = dark$' "$F"; then
+  sed -i '' 's/^window-theme = dark$/window-theme = light/' "$F"
+else
+  sed -i '' 's/^window-theme = light$/window-theme = dark/' "$F"
+fi
+for pid in $(ps -axo pid=,comm= | awk '$2=="/Applications/Ghostty.app/Contents/MacOS/ghostty"{print $1}'); do kill -USR2 "$pid"; done
